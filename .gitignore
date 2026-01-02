@@ -1,0 +1,30 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+
+# CocoaPods
+Pods/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Environment files
+.env
+.env.*
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# IDE
+.idea/
+*.xcodeproj/xcuserdata/
+
+# AI Tools
+.claude/
+.serena/
+.memories/

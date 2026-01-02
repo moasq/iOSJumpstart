@@ -1,0 +1,41 @@
+name: iOS starter workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build and Test default scheme using any available iPhone simulator
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set Default Scheme
+        run: |
+          echo "iOSJumpstart" > default
+          echo "Using default scheme: iOSJumpstart"
+      - name: Resolve Device
+        run: |
+          # Calculate the device once and store it in GITHUB_ENV
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
+          echo "DEVICE=$device" >> $GITHUB_ENV
+          
+          echo "Selected Device: $device"
+
+      - name: Build
+        env:
+          scheme: ${{ 'default' }}
+          platform: ${{ 'iOS Simulator' }}
+        run: |
+          if [ $scheme = default ]; then scheme=$(cat default); fi
+          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
+          file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
+          
+          xcodebuild build \
+            -scheme "$scheme" \
+            -"$filetype_parameter" "$file_to_build" \
+            -destination "platform=$platform,name=$DEVICE"
