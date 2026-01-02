@@ -189,14 +189,6 @@ This is a **template**, not a framework. You own the code and can customize ever
 
 ---
 
-## Support
-
-### Need Help?
-
-- 📖 **Check Documentation**: Start with [SETUP.md](./docs/SETUP.md) and [TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md)
-- 🐛 **Found a Bug?**: [Open an issue](https://github.com/yourusername/ios-starter-kit/issues)
-- 💬 **Questions?**: [Discussions](https://github.com/yourusername/ios-starter-kit/discussions)
-- 📧 **Email**: support@yourapp.com
 
 ### Community
 
