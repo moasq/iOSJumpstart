@@ -1,6 +1,5 @@
 # iOS Starter Kit
 
-<!-- Logo Placeholder -->
 <div align="center">
   <img src="./docs/images/logo.png" alt="iOS Starter Kit Logo" width="200"/>
   <p><strong>Production-ready iOS boilerplate with authentication, payments, and infrastructure pre-configured</strong></p>
