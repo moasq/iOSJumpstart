@@ -1,4 +1,4 @@
-# iOS Starter Kit
+# iOSJumpstart
 
 <div align="center">
   <img src="./docs/images/logo.png" alt="iOS Starter Kit Logo" width="200"/>
